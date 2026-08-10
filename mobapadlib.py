@@ -2,10 +2,12 @@ import asyncio
 from bleak import BleakClient, BleakScanner
 from models import DeviceInfo, MotorConfig
 
-S1_LEFT_NAME  = "Mobapad-S1-Joy-L"
-S1_RIGHT_NAME = "Mobapad-S1-Joy-R"
-M6_LEFT_NAME  = "Mobapad-M6-Joy-L"
-M6_RIGHT_NAME = "Mobapad-M6-Joy-R"
+S1_LEFT_NAMES = ["Mobapad-S1-Joy-L"]
+S1_RIGHT_NAMES = ["Mobapad-S1-Joy-R"]
+M6_LEFT_NAMES = ["Mobapad-M6-Joy-L"]
+M6_RIGHT_NAMES = ["Mobapad-M6-Joy-R"]
+M12_LEFT_NAMES = ["Mobapad-M12-S-L","Mobapad M12-S-L"]
+M12_RIGHT_NAMES = ["Mobapad-M12-S-R","Mobapad M12-S-R"]
 
 WRITE_UUID = "d7f010e1-660d-46e9-96c3-19c4148bdab5"
 READ_UUID = "d7f010e2-660d-46e9-96c3-19c4148bdab5"
@@ -562,20 +564,23 @@ class Mobapad:
             "right": None
         }
         if family == "S1":
-            left_name = S1_LEFT_NAME
-            right_name = S1_RIGHT_NAME
+            left_names = S1_LEFT_NAMES
+            right_names = S1_RIGHT_NAMES
         elif family == "M6":
-            left_name = M6_LEFT_NAME
-            right_name = M6_RIGHT_NAME
+            left_names = M6_LEFT_NAMES
+            right_names = M6_RIGHT_NAMES
+        elif family == "M12":
+            left_names = M12_LEFT_NAMES
+            right_names = M12_RIGHT_NAMES
         else:
             raise RuntimeError(
                 f"Unsupported family: {family}"
             )
         for dev in devices:
             name = dev.get("name")
-            if name == left_name:
+            if name in left_names:
                 result["left"] = dev
-            elif name == right_name:
+            elif name in right_names:
                 result["right"] = dev
         return result
 

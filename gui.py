@@ -52,6 +52,9 @@ class VibrationTab(QWidget):
         elif family == "M6":
             left_image = resource_path("assets/ic_handle_front_m6_left.png")
             right_image = resource_path("assets/ic_handle_front_m6_right.png")
+        elif family == "M12":
+            left_image = resource_path("assets/ic_handle_front_m12_left.png")
+            right_image = resource_path("assets/ic_handle_front_m12_right.png")
         else:
             raise RuntimeError(f"Unsupported family: {family}")
         left_pixmap = QPixmap(left_image)
@@ -268,8 +271,10 @@ class MainWindow(QWidget):
         """)
         self.tab_s1 = VibrationTab("S1")
         self.tab_m6 = VibrationTab("M6")
+        self.tab_m12 = VibrationTab("M12")
         self.tabs.addTab(self.tab_s1,"S1")
         self.tabs.addTab(self.tab_m6,"M6")
+        self.tabs.addTab(self.tab_m12, "M12")
         layout = QVBoxLayout()
         layout.addWidget(self.tabs)
         self.setLayout(layout)

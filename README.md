@@ -1,9 +1,8 @@
-# Mobapad Vibration Tool
+# Moba Vibration Tool
 
 A Windows utility for fine-grained vibration control on Mobapad controllers.
 
-assets/screenshot.png
-
+<img width="437" height="394" alt="screenshot2" src="https://github.com/user-attachments/assets/ae9f51ac-e0c5-41a9-8761-519db094967e" />
 ---
 
 ## Why This Tool Exists
@@ -134,15 +133,9 @@ The application automatically discovers compatible controllers using Bluetooth L
 
 Currently supported:
 
-### Mobapad S1
-
-- Mobapad-S1-Joy-L
-- Mobapad-S1-Joy-R
-
-### Mobapad M6 (needs testing)
-
-- Mobapad-M6-Joy-L
-- Mobapad-M6-Joy-R
+- Mobapad-S1
+- Mobapad-M6 (needs testing)
+- Mobapad-M12 (needs testing)
 
 ---
 
@@ -160,6 +153,12 @@ The application provides:
 - Windows
 - Bluetooth LE support
 - Mobapad controller
+
+---
+
+## How to use
+
+Extract and run .exe in a bluetooth enabled windows computer.
 
 ---
 
